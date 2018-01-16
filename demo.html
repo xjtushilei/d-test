@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+</head>
+<body>
+<h1>打开控制台，再按顺序点击查看demo运行情况，程序逻辑见本页的js</h1>
+<button onclick="test1()">创建session</button>
+<button onclick="test2()">第一轮</button>
+<button onclick="test3()">第二轮</button>
+<button onclick="test4()">第三轮</button>
+<br/>
+<textarea id="info" style="width: 80%;height: 700px"></textarea>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+<script src="SDK.js"></script>
+<script>
+    sdk = new FindDoctor("mobimedical", "test", "J", "2006-03-01", "female", "1234", "123", "http://docfinder.sparta.html5.qq.com")
+
+    function test1() {
+        sdk.creatSession(function (res) {
+            console.log(res)
+            // TODO
+            $("#info").val(JSON.stringify(res))
+        })
+    }
+    function test2() {
+        sdk.findDoctor("难受，恶心",function (res) {
+            console.log(res)
+            // TODO
+            $("#info").val($("#info").val()+"\n\n\n"+JSON.stringify(res))
+
+        })
+    }
+    function test3() {
+        sdk.findDoctor("发烧",function (res) {
+            console.log(res)
+            // TODO
+            $("#info").val($("#info").val()+"\n\n\n"+JSON.stringify(res))
+        })
+    }
+    function test4() {
+        sdk.findDoctor("便血",function (res) {
+            console.log(res)
+            // TODO
+            $("#info").val($("#info").val()+"\n\n\n\n"+JSON.stringify(res))
+        })
+    }
+</script>
+</body>
+</html>

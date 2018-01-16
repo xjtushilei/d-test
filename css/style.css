@@ -1,0 +1,192 @@
+
+/*home链接设置*/
+.color {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+.color:visited {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+.color:hover {
+    color: wheat;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+
+.yahei {
+    font-family: "Microsoft YaHei UI", "Microsoft YaHei", "SimHei", monospace;
+}
+
+.head {
+    height: 60px;
+    background-color: #000000;
+}
+
+.button_reset {
+    height: 44px;
+    width: 160px;
+    /*margin: 8px 0 8px 0;*/
+    margin-top: 8px;
+    background-image: url("../assets/重置按钮.png");
+    padding: 11px 0;
+    cursor: pointer;
+    border:0;
+}
+
+.btn_font {
+    color: #FFFFFF;
+    font-size: 18px;
+    text-align: center;
+    letter-spacing: 8px;
+}
+
+.head_2 {
+    margin-left: 20%;
+    margin-right: 25%;
+}
+
+.myinput {
+    margin-top: 60px;
+    margin-left: 22%;
+    margin-right: 8.9%;
+}
+
+input {
+    outline: none;
+    border: none;
+}
+
+#1::-webkit-input-placeholder {
+    opacity: 0.2;
+    font-size: 24px;
+    color: #000000;
+    font-family: "Roboto-Regular", "Microsoft YaHei", "SimHei", monospace;
+}
+
+.date {
+    padding-left: 30px;
+    font-size: 24px;
+    background-image: url("../assets/输入框.png");
+    cursor: url("../assets/光标.png"), default;
+}
+
+.sex {
+    height: 44px;
+    width: 44px;
+    margin-top: auto;
+    text-align: center;
+    padding: 8px 0;
+    cursor: pointer;
+    font-size: 20px;
+    color: #FFFFFF;
+}
+
+.sexno {
+    background-image: url("../assets/单选-未选择.png");
+    color: black;
+}
+
+.sexyes {
+    background-image: url("../assets/单选-选中.png");
+    color: white;
+}
+
+.question {
+    opacity: 0.8;
+    font-size: 14px;
+    color: #000000;
+    letter-spacing: -0.09px;
+    margin-bottom: 40px;
+}
+
+.one_item {
+    height: 40px;
+    width: 140px;
+    display: inline;
+    margin-right: 25px;
+    cursor: pointer;
+}
+
+.duoxuan_text {
+
+    height: 25px;
+    width: 40px;
+    opacity: 0.8;
+    font-size: 20px;
+    color: #000000;
+    letter-spacing: -0.12px;
+}
+
+.duoxuan_img {
+    height: 18px;
+    width: 18px;
+    margin-right: 5px;
+}
+
+.duoxuan_yes {
+    background-image: url("../assets/多选-选中.png");
+}
+
+.duoxuan_no {
+    background-image: url("../assets/多选-未选择.png");
+}
+
+#input2::-webkit-input-placeholder {
+    opacity: 0.3;
+    font-size: 14px;
+    color: #000000;
+    letter-spacing: -0.09px;
+    font-family: "Roboto-Regular", "Microsoft YaHei", "SimHei", monospace;
+}
+
+#input2 {
+    width: 960px;
+    height: 44px;
+    border: none;
+}
+
+
+
+.next {
+    color: #FFFFFF;
+    font-size: 18px;
+    text-align: center;
+    letter-spacing: 8px;
+    height: 44px;
+    width: 160px;
+    margin: 8px 0 8px 71.5%;
+    background-image: url("../assets/重点按钮-正常.png");
+    padding: 11px 0;
+    cursor: pointer;
+
+}
+
+.foot {
+    background-color: #F3F3F3;
+    font-size: 14px;
+    color: #000000;
+    letter-spacing: -0.09px;
+    padding-top: 67px;
+    bottom: 0;
+    height: 2000%;
+
+}
+
+.foot_2 {
+    margin-left: 20%;
+    margin-right: 25%;
+}
+
+pre {
+    outline: none;
+    border: none;
+    background-color: #F3F3F3;
+}
+
+html, body, #app {
+    height: 100%;
+}
