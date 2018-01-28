@@ -1,3 +1,24 @@
+function getQueryString(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) return unescape(r[2]);
+    return null;
+}
+
+httpurl = getQueryString("url")
+if (httpurl === null) {
+    alert("url中缺乏‘url’参数")
+}
+orgId = getQueryString("orgId")
+if (orgId === null) {
+    alert("url中缺乏‘orgId’参数")
+}
+clientId = getQueryString("clientId")
+if (clientId === null) {
+    alert("url中缺乏‘clientId’参数")
+}
+
+
 var vm = new Vue({
     el: "#app",
     data: {
@@ -23,11 +44,11 @@ var vm = new Vue({
             for (i = 0; i < 7; i++) {
                 item = $('#item' + i)
                 if (item.length > 0) {
-                    if(item.hasClass("duoxuan_yes")){
+                    if (item.hasClass("duoxuan_yes")) {
                         item.removeClass("duoxuan_yes")
                     }
-                     if(!item.hasClass("duoxuan_no")){
-                         item.addClass("duoxuan_no")
+                    if (!item.hasClass("duoxuan_no")) {
+                        item.addClass("duoxuan_no")
                     }
 
                 }
@@ -55,7 +76,7 @@ var vm = new Vue({
             vm.choice = ""
             $.ajax({
                 type: "POST",
-                url: httpurl+"/v2/sessions?clientId=testclient&orgId=testorg",
+                url: httpurl + "/v2/sessions?clientId=" + clientId + "&orgId=" + orgId,
                 data: JSON.stringify({
                         "patient": {
                             "name": "J",
@@ -66,7 +87,7 @@ var vm = new Vue({
                         "wechatOpenId": "weichat1icdmqq23123mmq"
                     }
                 ),
-		contentType:"application/json",
+                contentType: "application/json",
                 dataType: "json",
                 success: function (message) {
                     console.log(message)
@@ -78,47 +99,10 @@ var vm = new Vue({
                 },
                 error: function (message) {
                     vm.res = message
-                    $.confirm({
-                        icon: 'fa fa-question',
-                        theme: 'modern',
-                        animation: 'RotateX',
-                        title: '错误检查',
-                        content: "您是否安装了谷歌浏览器?或者正在使用谷歌浏览器？",
-                        buttons: {
-                            "是": function () {
-                                $.confirm({
-                                    icon: 'fa fa-question',
-                                    theme: 'modern',
-                                    title: '错误检查',
-                                    animation: 'RotateR',
-                                    content: "您是否安装了陈博给的谷歌浏览器插件 'allow-control-allow-origi' <img src='img/cors.png'/>？",
-                                    buttons: {
-                                        "是": function () {
-                                            $.alert({
-                                                title: '解决方案：',
-                                                content: "" +
-                                                "<br/>1.点击陈博给的google浏览器插件" +
-                                                "<br/>" +
-                                                "2.蓝色的开关，先关闭，再打开" +
-                                                "<br/> <img src='img/2.png'/>" +
-                                                "<br/>3.重新点击<开始>按钮" +
-                                                "<br/>" +
-                                                "<h5 style='color: red'>如果无效，询问管理员是否正在更新服务？或者服务挂掉了？</h5>",
-                                            });
-                                        },
-                                        "否": function () {
-                                            window.open("https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?utm_source=chrome-app-launcher-info-dialog")
-                                        }
-                                    }
-                                });
-                            },
-                            "否": function () {
-                                window.open("https://www.baidu.com/s?ie=UTF-8&wd=%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8")
-                            }
-                        }
-                    });
-
-
+                    $.alert({
+                        title: '提示',
+                        content: "检查url中各项参数是否发生错误",
+                    })
                 }
             });
         },
@@ -131,11 +115,11 @@ var vm = new Vue({
                 return
             }
             $.ajax({
-                url: httpurl+"/v2/doctors?" + "clientId=testclient&" + vm.debug + "=true&orgId=testorg&sessionId=" + vm.sessionId + "&seqno=" + vm.seq + "&query=您有哪些不舒服的症状？&choice=" + vm.choice,
+                url: httpurl + "/v2/doctors?" + "clientId=" + clientId + "&" + vm.debug + "=true&orgId=" + orgId + "&sessionId=" + vm.sessionId + "&seqno=" + vm.seq + "&query=您有哪些不舒服的症状？&choice=" + vm.choice,
                 method: 'GET',
                 dataType: "json",
                 success: function (result) {
-             
+
                     if (result.status === "department") {
                         $.alert({
                             title: '提示',
