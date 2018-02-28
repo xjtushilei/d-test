@@ -17,7 +17,7 @@ clientId = getQueryString("clientId")
 if (clientId === null) {
     alert("url中缺乏‘clientId’参数")
 }
-
+otherParam = getQueryString("otherParam")
 
 var vm = new Vue({
     el: "#app",
@@ -76,7 +76,7 @@ var vm = new Vue({
             vm.choice = ""
             $.ajax({
                 type: "POST",
-                url: httpurl + "/v2/sessions?clientId=" + clientId + "&orgId=" + orgId,
+                url: httpurl + "/v2/sessions?clientId=" + clientId + "&orgId=" + orgId + "&"+otherParam,
                 data: JSON.stringify({
                         "patient": {
                             "name": "J",
@@ -115,7 +115,7 @@ var vm = new Vue({
                 return
             }
             $.ajax({
-                url: httpurl + "/v2/doctors?" + "clientId=" + clientId + "&" + vm.debug + "=true&orgId=" + orgId + "&sessionId=" + vm.sessionId + "&seqno=" + vm.seq + "&query=您有哪些不舒服的症状？&choice=" + vm.choice,
+                url: httpurl + "/v2/doctors?" + "clientId=" + clientId + "&" + vm.debug + "=true&orgId=" + orgId + "&sessionId=" + vm.sessionId + "&seqno=" + vm.seq + "&query=您有哪些不舒服的症状？&choice=" + vm.choice+ "&"+otherParam,
                 method: 'GET',
                 dataType: "json",
                 success: function (result) {
