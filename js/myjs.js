@@ -116,7 +116,7 @@ var vm = new Vue({
                 return
             }
             $.ajax({
-                url: httpurl + "/v2/doctors?" + "clientId=" + clientId + "&" + vm.debug + "=true&orgId=" + orgId + "&sessionId=" + vm.sessionId + "&seqno=" + vm.seq + "&query=您有哪些不舒服的症状？&choice=" + vm.choice+ + "&appointment="+appointment+ "&branchId="+branchId,
+                url: httpurl + "/v2/doctors?" + "clientId=" + clientId + "&" + vm.debug + "=true&orgId=" + orgId + "&sessionId=" + vm.sessionId + "&seqno=" + vm.seq + "&query=您有哪些不舒服的症状？&choice=" + vm.choice+ "&appointment="+appointment+ "&branchId="+branchId,
                 method: 'GET',
                 dataType: "json",
                 success: function (result) {
